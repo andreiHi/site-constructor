@@ -1,18 +1,18 @@
-import './module'
+import {Site} from "./clasess/site";
 import {model} from './model'
+import './module'
 import './styles/main.css'
-import {templates} from "./templates";
+import {Sidebar} from "./clasess/sidebar";
 
-const site =  document.querySelector('#site');
 
-model.forEach(block => {
-    // let html;
-    // const generate = templates[block.type]
-    // if (generate) {
-    //     html = generate(block);
-    //}
-    let html = block.toHtml();
-    site.insertAdjacentHTML('beforeend', html); // подключает по id в конец блока
-});
+const site = new Site('#site');
+
+const updateCallBack = newBlock => {
+    model.push(newBlock)
+    site.render(model)
+}
+const sidebar = new Sidebar('#panel', updateCallBack);
+
+site.render(model);
 
 

@@ -1,5 +1,6 @@
 import image from './assets/image.png'
 import {Block, ImageBlock, TextBlock, TextColumnsBlock, TitleBlock} from './clasess/block'
+import {css} from "./util";
 const text = `
 Крутые видео и уроки по JavaScript тут:
 <a href="https://youtube.com/c/VladilenMinin" target="_blank">Владилен Минин</a>.
@@ -9,7 +10,12 @@ const text = `
 export const model = [
     new TitleBlock('Конструктор сайтов на чистом JavaScript!',{
             tag: 'h2',
-            styles: 'background: linear-gradient(to right, #ff0099, #493240);color: #fff;padding: 1.5rem;text-align: center;'
+            styles: css({
+                background:  'linear-gradient(to right, #ff0099, #493240)',
+                color: '#fff',
+                padding: '1.5rem',
+                'text-align': 'center'
+            })
         }
     ),
     new ImageBlock(  image, {
