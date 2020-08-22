@@ -7,7 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist') // первый параметр это корень второй папка
     },
     devServer: {
-        port: 3100
+        port: 3000
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -20,7 +20,15 @@ module.exports = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
         ],
-    },
+    }
 }
 
